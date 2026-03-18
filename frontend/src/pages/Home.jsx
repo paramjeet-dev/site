@@ -4,6 +4,8 @@ import Navbar from '../components/home/Navbar'
 import NewsSection from '../components/home/News'
 import RecruitersSlider from '../components/home/Recruiter'
 import Hero from '../components/home/Hero'
+import Dept from '../components/home/Dept'
+import Events from '../components/home/Events'
 import {motion} from 'framer-motion';
 
 const Home = () => {
@@ -84,6 +86,8 @@ const Home = () => {
     <Navbar/>
     <Hero/>
     <NewsSection/>
+    <Events/>
+    <Dept/>
     <RecruitersSlider/>
     <Footer/>
     </>

@@ -68,23 +68,10 @@ const Navbar = ({ onMenuClick }) => {
         { label: 'Mechanical Engineering', href: '/departments/mechanical-engineering', isRoute: true },
       ],
     },
-    {
-      label: 'Achievements',
-      href: '#achievements'
-    },
-    {
-      label: 'Placements',
-      href: '/placements',
-      isRoute: true
-    },
-    {
-      label: 'Gallery',
-      href: '#gallery'
-    },
-    {
-      label: 'News & Notices',
-      href: '#news-notices'
-    }
+    { label: 'Achievements', href: '#achievements' },
+    { label: 'Placements', href: '/placements', isRoute: true },
+    { label: 'Gallery', href: '#gallery' },
+    { label: 'News & Notices', href: '#news-notices' }
   ];
 
   useEffect(() => {
@@ -96,7 +83,6 @@ const Navbar = ({ onMenuClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (activeDropdown !== null && !event.target.closest('nav')) {
@@ -111,18 +97,21 @@ const Navbar = ({ onMenuClick }) => {
 
   return (
     <nav
-      className={`backdrop-blur-md bg-[#0F1E3A]/90 border-b border-white/10 transition-all duration-300 ${
-        isSticky ? 'fixed top-0 left-0 right-0 z-50 shadow-2xl bg-[#0F1E3A]/95' : 'shadow-lg'
-      }`}
+      className={`
+        backdrop-blur-md border-b transition-all duration-300
+        bg-white/80 text-black border-gray-200
+        dark:bg-[#0F1E3A]/90 dark:text-white dark:border-white/10
+        ${isSticky ? 'fixed top-0 left-0 right-0 z-50 shadow-2xl' : 'shadow-lg'}
+      `}
       aria-label="Main Navigation"
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-16">
+
           {/* Mobile Menu Button */}
           <button
             onClick={onMenuClick}
-            className="md:hidden text-white hover:text-[#E6B325] transition-colors p-2"
-            aria-label="Open menu"
+            className="md:hidden text-black dark:text-white hover:text-[#E6B325] transition-colors p-2"
           >
             <FiMenu className="text-2xl" />
           </button>
@@ -145,14 +134,20 @@ const Navbar = ({ onMenuClick }) => {
                 }}
               >
                 {link.dropdown ? (
-                  // Button for items with dropdown
                   <button
                     onClick={() => {
                       const newState = activeDropdown === index ? null : index;
                       setActiveDropdown(newState);
                       setClickedDropdown(newState);
                     }}
-                    className="flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold text-white/95 hover:text-[#E6B325] transition-all duration-200 rounded-md hover:bg-white/10 backdrop-blur-sm whitespace-nowrap"
+                    className="
+                      flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold
+                      text-black dark:text-white
+                      hover:text-[#E6B325]
+                      rounded-md
+                      hover:bg-black/5 dark:hover:bg-white/10
+                      transition-all duration-200 whitespace-nowrap
+                    "
                   >
                     {link.label}
                     <FiChevronDown className={`text-sm transition-transform ${activeDropdown === index ? 'rotate-180' : ''}`} />
@@ -160,22 +155,44 @@ const Navbar = ({ onMenuClick }) => {
                 ) : link.isRoute ? (
                   <Link
                     to={link.href}
-                    className="flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold text-white/95 hover:text-[#E6B325] transition-all duration-200 rounded-md hover:bg-white/10 backdrop-blur-sm whitespace-nowrap"
+                    className="
+                      flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold
+                      text-black dark:text-white
+                      hover:text-[#E6B325]
+                      rounded-md
+                      hover:bg-black/5 dark:hover:bg-white/10
+                      transition-all duration-200 whitespace-nowrap
+                    "
                   >
                     {link.label}
                   </Link>
                 ) : (
                   <a
                     href={link.href}
-                    className="flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold text-white/95 hover:text-[#E6B325] transition-all duration-200 rounded-md hover:bg-white/10 backdrop-blur-sm whitespace-nowrap"
+                    className="
+                      flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold
+                      text-black dark:text-white
+                      hover:text-[#E6B325]
+                      rounded-md
+                      hover:bg-black/5 dark:hover:bg-white/10
+                      transition-all duration-200 whitespace-nowrap
+                    "
                   >
                     {link.label}
                   </a>
                 )}
 
-                {/* Dropdown Menu */}
+                {/* Dropdown */}
                 {link.dropdown && activeDropdown === index && (
-                  <div className="absolute top-full left-0 mt-2 bg-white/95 backdrop-blur-md border border-[#E6B325]/20 rounded-xl shadow-2xl min-w-[240px] max-h-[400px] overflow-y-auto py-3 z-50">
+                  <div className="
+                    absolute top-full left-0 mt-2
+                    bg-white text-black
+                    dark:bg-[#0F1E3A] dark:text-white
+                    backdrop-blur-md
+                    border border-gray-200 dark:border-white/10
+                    rounded-xl shadow-2xl
+                    min-w-[240px] max-h-[400px] overflow-y-auto py-3 z-50
+                  ">
                     {link.dropdown.map((item, idx) => (
                       item.isRoute ? (
                         <Link
@@ -185,7 +202,15 @@ const Navbar = ({ onMenuClick }) => {
                             setActiveDropdown(null);
                             setClickedDropdown(null);
                           }}
-                          className="block px-5 py-2.5 text-xs lg:text-sm font-semibold text-[#0F1E3A] hover:bg-gradient-to-r hover:from-[#E6B325]/10 hover:to-[#2E9E6F]/10 hover:text-[#2E9E6F] transition-all border-l-3 border-transparent hover:border-[#E6B325] rounded-r-lg"
+                          className="
+                            block px-5 py-2.5 text-xs lg:text-sm font-semibold
+                            text-black dark:text-white
+                            hover:bg-gradient-to-r
+                            hover:from-[#E6B325]/10 hover:to-[#2E9E6F]/10
+                            hover:text-[#2E9E6F]
+                            border-l-4 border-transparent hover:border-[#E6B325]
+                            transition-all rounded-r-lg
+                          "
                         >
                           {item.label}
                         </Link>
@@ -197,7 +222,15 @@ const Navbar = ({ onMenuClick }) => {
                             setActiveDropdown(null);
                             setClickedDropdown(null);
                           }}
-                          className="block px-5 py-2.5 text-xs lg:text-sm font-semibold text-[#0F1E3A] hover:bg-gradient-to-r hover:from-[#E6B325]/10 hover:to-[#2E9E6F]/10 hover:text-[#2E9E6F] transition-all border-l-3 border-transparent hover:border-[#E6B325] rounded-r-lg"
+                          className="
+                            block px-5 py-2.5 text-xs lg:text-sm font-semibold
+                            text-black dark:text-white
+                            hover:bg-gradient-to-r
+                            hover:from-[#E6B325]/10 hover:to-[#2E9E6F]/10
+                            hover:text-[#2E9E6F]
+                            border-l-4 border-transparent hover:border-[#E6B325]
+                            transition-all rounded-r-lg
+                          "
                         >
                           {item.label}
                         </a>

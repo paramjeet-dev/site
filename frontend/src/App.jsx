@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Academic from './pages/Academic'
 import Contact from './pages/Contact'
 import Placements from './pages/Placements'
+import ThemeToggle from './components/ThemeToggle'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <ThemeToggle/>
     </>
   )
 }

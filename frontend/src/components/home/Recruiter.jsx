@@ -60,7 +60,6 @@ const RecruitersSlider = ({ recruiters = [] }) => {
 
   const displayRecruiters = recruiters.length > 0 ? recruiters : defaultRecruiters;
 
-  // Auto-scroll
   useEffect(() => {
     if (displayRecruiters.length <= 6 || isPaused) return;
 
@@ -71,7 +70,6 @@ const RecruitersSlider = ({ recruiters = [] }) => {
     return () => clearInterval(interval);
   }, [displayRecruiters.length, isPaused]);
 
-  // Get visible recruiters (circular)
   const getVisibleRecruiters = () => {
     const visible = [];
     for (let i = 0; i < 6; i++) {
@@ -81,7 +79,6 @@ const RecruitersSlider = ({ recruiters = [] }) => {
     return visible;
   };
 
-  // Handle dot click
   const handleDotClick = (index) => {
     setCurrentIndex(index);
   };
@@ -90,16 +87,30 @@ const RecruitersSlider = ({ recruiters = [] }) => {
   const currentPage = Math.floor(currentIndex / 6);
 
   return (
-    <section id="recruiters" className="py-12 bg-primary-navy text-white">
+    <section
+      id="recruiters"
+      className="
+        py-12
+        bg-gray-50 text-gray-900
+        dark:bg-[#0a0f1f] dark:text-white
+        transition-colors duration-300
+      "
+    >
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           subtitle="Our Proud Partners"
           title="Top Recruiters"
           centered
-          className="[&>p]:text-accent-gold [&>h2]:text-white"
+          className="
+            [&>p]:text-[#E6B325]
+            [&>h2]:text-gray-900 dark:[&>h2]:text-white
+          "
         />
 
-        <p className="text-center text-gray-300 mb-8 max-w-2xl mx-auto text-sm sm:text-base">
+        <p className="
+          text-center mb-8 max-w-2xl mx-auto text-sm sm:text-base
+          text-gray-600 dark:text-gray-300
+        ">
           Our students are recruited by leading companies across various industries. 
           We maintain strong industry partnerships to ensure excellent placement opportunities.
         </p>
@@ -113,10 +124,19 @@ const RecruitersSlider = ({ recruiters = [] }) => {
           {getVisibleRecruiters().map((recruiter, index) => (
             <div
               key={`${recruiter.id}-${index}`}
-              className="bg-white rounded-lg p-4 flex items-center justify-center hover:shadow-xl transition-all hover:scale-105 cursor-pointer"
+              className="
+                rounded-xl p-4 flex items-center justify-center
+                bg-white text-gray-900
+                dark:bg-[#0F1E3A] dark:text-white
+                border border-gray-200 dark:border-white/10
+                shadow-md hover:shadow-xl
+                transition-all duration-300
+                hover:scale-105 cursor-pointer
+                backdrop-blur-md
+              "
               style={{ minHeight: '80px' }}
             >
-              <span className="text-primary-navy font-bold text-center text-sm sm:text-base">
+              <span className="font-semibold text-center text-sm sm:text-base">
                 {recruiter.name}
               </span>
             </div>
@@ -130,12 +150,12 @@ const RecruitersSlider = ({ recruiters = [] }) => {
               <button
                 key={index}
                 onClick={() => handleDotClick(index * 6)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  currentPage === index
-                    ? 'w-6 bg-accent-gold'
-                    : 'bg-white/30 hover:bg-white/50'
-                }`}
-                aria-label={`Go to page ${index + 1}`}
+                className={`
+                  h-2 rounded-full transition-all duration-300
+                  ${currentPage === index
+                    ? 'w-6 bg-[#E6B325]'
+                    : 'w-2 bg-gray-400 dark:bg-white/30 hover:bg-gray-600 dark:hover:bg-white/50'}
+                `}
               />
             ))}
           </div>
