@@ -6,6 +6,7 @@ import RecruitersSlider from '../components/home/Recruiter'
 import Hero from '../components/home/Hero'
 import Dept from '../components/home/Dept'
 import Events from '../components/home/Events'
+import WhyChooseUs from '../components/home/Why'
 import {motion} from 'framer-motion';
 
 const Home = () => {
@@ -89,6 +90,7 @@ const Home = () => {
     <Events/>
     <Dept/>
     <RecruitersSlider/>
+    <WhyChooseUs/>
     <Footer/>
     </>
   )
