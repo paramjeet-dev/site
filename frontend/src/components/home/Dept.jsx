@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Card from '../ui/Card';
-import SectionTitle from '../ui/SectionTitle';
+import Card from './Card';
+import SectionTitle from './SectionTitle';
 import { FiArrowRight } from 'react-icons/fi';
 
 const DepartmentsGrid = ({ departments = [] }) => {
