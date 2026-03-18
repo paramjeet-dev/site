@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../ui/Card';
-import SectionTitle from '../ui/SectionTitle';
+import Card from './Card';
+import SectionTitle from './SectionTitle';
 import { 
   FiAward, 
   FiUsers, 

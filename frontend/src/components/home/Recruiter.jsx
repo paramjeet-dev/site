@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SectionTitle from 'SectionTitle';
+import SectionTitle from './SectionTitle';
 
 const RecruitersSlider = ({ recruiters = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
