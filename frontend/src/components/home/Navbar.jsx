@@ -14,8 +14,6 @@ const Navbar = ({ onMenuClick }) => {
       href: '#about',
       dropdown: [
         { label: 'History', href: '/history', isRoute: true },
-        { label: 'Messages', href: '/messages', isRoute: true },
-        { label: 'Vision & Mission', href: '/vision-mission', isRoute: true },
         { label: 'Affiliation', href: '/affiliation', isRoute: true },
         { label: 'Staff', href: '/staff', isRoute: true },
         { label: 'Admission Status', href: '/admission-status', isRoute: true },
@@ -24,8 +22,6 @@ const Navbar = ({ onMenuClick }) => {
         { label: 'Results', href: '#results' },
         { label: 'Placements', href: '/placements', isRoute: true },
         { label: 'Extracurricular Activities', href: '#extracurricular' },
-        { label: 'Unnat Bharat Abhiyan', href: '#unnat-bharat' },
-        { label: 'Mandatory Disclosure under RTI', href: '#rti' },
         { label: 'Contact Us', href: '/contact', isRoute: true },
         { label: 'How To Reach Institute', href: '/how-to-reach', isRoute: true },
       ],
@@ -35,13 +31,9 @@ const Navbar = ({ onMenuClick }) => {
       href: '#students',
       dropdown: [
         { label: 'Academic Calendar', href: '#academic-calendar' },
-        { label: 'Admission Procedure', href: '#admission-procedure' },
         { label: 'Exams', href: '#exams' },
         { label: 'Syllabus', href: '#syllabus' },
         { label: 'Apprenticeship', href: '#apprenticeship' },
-        { label: 'NCC', href: '#ncc' },
-        { label: 'NSS', href: '#nss' },
-        { label: 'Welfare Schemes', href: '#welfare-schemes' },
         { label: 'Time Table', href: '#time-table' },
         { label: 'Online Learning Portals', href: '#online-learning' },
         { label: 'Code of Conduct', href: '#student-conduct' },
@@ -61,21 +53,6 @@ const Navbar = ({ onMenuClick }) => {
         { label: 'Department Instructions', href: '/faculty/department-instructions', isRoute: true },
         { label: 'HRMS', href: '/faculty/hrms', isRoute: true },
         { label: 'E-Service for Faculty', href: '/faculty/e-service', isRoute: true },
-      ],
-    },
-    {
-      label: 'Committees',
-      href: '#committees',
-      dropdown: [
-        { label: 'Committees', href: '#committees' },
-        { label: 'Entrepreneurship Cell', href: '#ed-cell' },
-        { label: 'Alumni Cell', href: '#alumni-cell' },
-        { label: 'Anti Ragging', href: '#anti-ragging' },
-        { label: 'Internal Complaint Committee', href: '#icc' },
-        { label: 'SC/ST Committee', href: '#scst-committee' },
-        { label: 'IQAC-Quality Cell', href: '#iqac' },
-        { label: 'Cultural Committee', href: '#cultural-committee' },
-        { label: 'Grievance Redressal', href: '#grievance' },
       ],
     },
     {
@@ -103,10 +80,6 @@ const Navbar = ({ onMenuClick }) => {
     {
       label: 'Gallery',
       href: '#gallery'
-    },
-    {
-      label: 'Tender',
-      href: '#tender'
     },
     {
       label: 'News & Notices',
